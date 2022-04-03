@@ -3,7 +3,7 @@
 ### First and Last Name: Λύρα Ελένη Αποστολία 
 ### University Registration Number: dpsd19068
 ### GitHub Personal Profile: https://github.com/ElenaLyra
-### Augmented Reality Personal Repository: xxx
+### Augmented Reality Personal Repository: https://elenalyra.github.io/Augmented-Reality/
 
 # Introduction
 
