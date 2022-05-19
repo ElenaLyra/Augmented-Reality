@@ -18,13 +18,76 @@
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
     embedded
-    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
-  >
-             <a-assets>
-            <img id="my-image" src="assets/pattern-Untitled1_20220506152219.png">
-            <img id="hydrogen" src="assets/card-H.png">
-            <img id="oxygen" src="assets/card-O.png">
-                 </a-assets>
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+            
+            
+                
+            
+             <script>
+                 
+             AFRAME.registerComponent("marker_distance",{
+
+
+            init: function () {
+
+
+            this.hydrogen = document.querySelector('#Hydrogen')
+
+
+            this.oxygen = document.querySelector('#Oxygen')
+
+
+            this.marker_hydrogen = document.querySelector('#marker_hydrogen')
+
+
+            this.marker_oxygen = document.querySelector('#marker_oxygen')
+
+
+        },
+            
+            
+            
+           tick: function() {
+               
+               
+            var marker_hydrogen_pos, marker_oxygen_pos, marker_distance
+
+
+
+            marker_hydrogen_pos = new THREE.Vector3();
+            this.marker_hydrogen.object3D.getWorldPosition(marker_hydrogen_pos);
+
+
+
+            marker_oxygen_pos = new THREE.Vector3();
+            this.marker_oxygen_pos.object3D.getWorldPosition(marker_oxygen_pos);
+
+
+
+            marker_distance = marker_hydrogen_pos.distanceTo(marker_oxygen_pos);
+               
+               
+               
+
+            if (marker_distance<2)
+            {
+                this.hydrogen.setAttribute("visible", false)
+                this.oxygen.setAttribute("visible", false)
+                this.water.setAttribute("visible", true)
+            }
+            else
+            {
+                this.hydrogen.setAttribute("visible",true)
+                this.oxygen.setAttribute("visible",true)
+                this.water.setAttribute("visible", false)
+            }
+        },
+    });
+                    
+    </script>
+            
+        <a-entity marker_distance></a-entity>
+            
             
         <a-marker preset="hiro">
              
