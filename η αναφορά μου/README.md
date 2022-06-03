@@ -18,7 +18,7 @@
 
 
 # 3rd Deliverable 
-
+Αρχικά  ξεκίνησα πέρνοντας ετοίμο ένα  3D μοντέλο  απο  <https://sketchfab.com/feed> . Το κατέυασα στον υπολογιστή μου σε μορφή  zip και ανέβασα στο assets  το αρχείο  "old.glft" και "οld.bin". Έπειτα ,  επεξεργάστηκα τον φάκελο index.html 
 
 # Conclusions
 
