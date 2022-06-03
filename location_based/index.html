@@ -38,25 +38,22 @@
 
    
       <a-assets>
-             <a-asset-item id="ntower" src="assets/old_hut.gltf"></a-asset-item>
+             <a-asset-item id="old" src="assets/old.gltf"></a-asset-item>
       </a-assets>
 
-            <a-entity id="old_hut_model" position="0 0 -180" class="click"
+            <a-entity id="old_model" position="0 0 -180" class="click"
                       scale="2 2 2"
                       gltf-model="#old"
 		                  animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;"
                       gps-entity-place="latitude: 44.506477; longitude: 11.301524;" information>
             </a-entity>
 
-      <a-text id="old_hut_info" class="clickable" text="value:"
+      <a-text id="old_info" class="clickable" text="value:"
            position="0 0 -90"
            color= "#F4D35E"
            scale="7 7 7"
            visible="false">
       </a-text>
-
-
-	     
 
         <a-box
             material="color: red;"
