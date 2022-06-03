@@ -21,110 +21,93 @@
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
             
             
-                
+            <!--DELIVERABLE 1-->
+            
+  <a-marker preset="hiro">
+            <a-entity id="box" geometry="primitive: box; width: 0.3; depth: 0.3; height: 0.3" position="0 0 0" material="color: #4CC3D9"></a-entity>
+            <a-cylinder id="cylinder" geometry="primitive: cylinder; radius: 0.2; height:0.6" position="0.3 0.3 0.3" material="color: #FFC65D"></a-cylinder>
+            <a-sphere id="sphere" geometry="primitive: sphere; radius: 0.2;" position="-0.3 -0.3 -0.3" material="color: #EF2D5E"></a-sphere>
+            <a-entity id="links" position="0 2.25 -15" maxAge = "20"  maxParticleCount = "3000000" particle-system="preset: snow" visible = "false"
+
+            speech-command__start="command: start; type: attribute; attribute: visible; value: true;"
+            speech-command__stop="command: stop; type: attribute; attribute: visible; value: false;"> >
+            </a-entity>
+              <a-entity id="annyang" annyang-speech-recognition></a-entity>
+            </a-entity>
+  </a-marker>
+            
+            <!-- Deliverable 2 -->
             
              <script>
-                 
-             AFRAME.registerComponent("marker_distance",{
+         AFRAME.registerComponent("marker-distance", {
 
+             init: function () {
+             this.hydrogen = document.querySelector('#Hydrogen')
+             this.oxygen = document.querySelector('#Oxygen')
+            this.water = document.querySelector('#water')
+             this.marker1 = document.querySelector('#marker1')
+             this.marker2 = document.querySelector('#marker2'
+         },
+         tick: function() 
+         {
+             var markerhPos, markeroPos, markerDistance 
 
-            init: function () {
+             markerhPos = new THREE.Vector3();
+             this.markerh.object3D.getWorldPosition(markerhPos);
 
+             markeroPos = new THREE.Vector3();
+             this.markero.object3D.getWorldPosition(markeroPos);
 
-            this.hydrogen = document.querySelector('#Hydrogen')
+             markerDistance = markerhPos.distanceTo(markeroPos);
 
-
-            this.oxygen = document.querySelector('#Oxygen')
-
-            this.water= document.querySelector ('#water')
-                
-            this.marker_hydrogen = document.querySelector('#marker_hydrogen')
-
-
-            this.marker_oxygen = document.querySelector('#marker_oxygen')
-
-
-        },
+             if (markerDistance<2) 
+             {
+                 this.hydrogen.setAttribute("visible", false)
+                 this.oxygen.setAttribute("visible", false)
+                 this.water.setAttribute("visible", true)
+             }
+             else 
+             {
+                 this.hydrogen.setAttribute("visible",true) 
+                 this.oxygen.setAttribute("visible",true) 
+                 this.water.setAttribute("visible", false)
+             }
+         },
+     });
+     </script>
             
-            
-            
-           tick: function() {
-               
-               
-            var marker_hydrogen_pos, marker_oxygen_pos, marker_distance
-
-
-
-            marker_hydrogen_pos = new THREE.Vector3();
-            this.marker_hydrogen.object3D.getWorldPosition(marker_hydrogen_pos);
-
-
-
-            marker_oxygen_pos = new THREE.Vector3();
-            this.marker_oxygen_pos.object3D.getWorldPosition(marker_oxygen_pos);
-
-
-
-            marker_distance = marker_hydrogen_pos.distanceTo(marker_oxygen_pos);
-               
-               
-               
-
-            if (marker_distance<2)
-            {
-                this.hydrogen.setAttribute("visible", false)
-                this.oxygen.setAttribute("visible", false)
-                this.water.setAttribute("visible", true)
-            }
-            else
-            {
-                this.hydrogen.setAttribute("visible",true)
-                this.oxygen.setAttribute("visible",true)
-                this.water.setAttribute("visible", false)
-            }
-        },
-    });
-                    
-    </script>
-            
+                 <a-scene
+ vr-mode-ui="enabled: false;"
+ renderer="logarithmicDepthBuffer: true;"
+ embedded
+ arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+>
+                     
         <a-entity marker_distance></a-entity>
                
+                     
         <a-marker type="pattern" url="assets/dpsd19068.patt">
         <a-image src="assets/flower.png" position="0 0.5 0"></a-image>
         <a-text value="Elena Apostolia Lyra" position="-1 1.2 0"></a-text>
         </a-marker>
+                     
+           
+<a-asset>
+<a-asset-item id="hydrogen" src="assets/hydrogen.gltf"></a-asset-item>
+<a-asset-item id="watter" src="assets/water.gltf"></a-asset-item>
+</a-asset>
 
+<a-marker id="marker1" type="pattern" url="assets/pattern-card-H.patt"> 
+ <a-entity id="hydrogen" gltf-model="#hydrogen" scale= "1.5 1.5 1.5"  position="0 0.5 0"></a-entity>
+ <a-entity id="water" gltf-model="#water" scale= "0.5 0.5 0.5"  position="0 0.5 0"></a-entity>
+</a-marker>
 
-            
-        <a-marker preset="hiro">
-             
-           <a-entity id="box" geometry="primitive: box; width: 0.2; depth: 0.2; height: 0.2" position="0 0 0" material="color: #4CC3D9"></a-entity>
-            <a-sphere position="0 1.25 -5" radius="0.9" color="#FF7F50"></a-sphere>
-           <a-cylinder position="1 0.75 -3" radius="0.8" height="1.5" color="#FFEBCD"></a-cylinder>
-            
-              <a-entity position="0 2.25 -15" particle-system="preset: snow particleCount: 10000" 
-                        visible="false"
-              speech-command__start="command: start menu; type: attribute; attribute: visible; value: true;"
-              speech-command__stop="command: stop menu; type: attribute; attribute: visible; value: false;">
+<a-asset-item id="oxygen" src="assets/Oxygen.gltf"></a-asset-item>
 
-            </a-entity>
-            
-        </a-marker>
-            
-            <a-marker preset='custom' type= 'pattern' url='assets/dpsd19068.patt'>
-           <a-image src="#my-image" width="1" height="1" rotation="90 180 0" position="0 0.2 0"></a-image>
-                </a-marker>
-            
-            <a-marker preset='custom' type= 'pattern' url='assets/hydrogen.patt'>
-           <a-image src="#hydrogen" width="1" height="1" rotation="90 180 0" position="0 0.2 0"></a-image>
-                </a-marker>
-            
-            <a-marker preset='custom' type= 'pattern' url='assets/oxygen.patt'>
-           <a-image src="#oxygen" width="1" height="1" rotation="90 180 0" position="0 0.2 0"></a-image>
-                </a-marker>
+<a-marker id="marker2" type="pattern" url="assets/pattern-card-O.patt"> 
+ <a-entity id="Oxygen" gltf-model="#oxygen" scale= "1.5 1.5 1.5"  position="0 0.5 0"></a-entity>
+</a-marker>
 
-        <a-entity marker_distance></a-entity>
-            
         <a-entity camera></a-entity>
         </a-scene>
     </body>
