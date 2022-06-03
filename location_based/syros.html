@@ -17,8 +17,11 @@
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
 
         <a-entity gps-entity-place="latitude: 44.4908615; longitude: 11.3326416;" gltf-model="./assets/magnemite/scene.gltf" rotation="0 180 0" animation-mixer scale="0.15 0.15 0.15"/>
-        
-        
+         
+	    <a-entity gps-entity-place="latitude: 37.444578188; longitude: 24.94285126619;" src="assets/syros.jpg" height="1.5" width="1.5" >
+	  <a-text id="text_info" text=" Syros,cyclades,greece" position="0 0 -90" color= "#F4D35E" scale="7 7 7" </a-text>
+          <a-image src="assets/syros.png" position="0 0 -180" width="1" height="1"></a-image>/>    
+	</a-entity>
         
         <a-camera gps-camera rotation-reader></a-camera>
 	</a-scene>
