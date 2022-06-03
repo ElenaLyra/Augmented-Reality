@@ -42,8 +42,8 @@
          AFRAME.registerComponent("marker-distance", {
 
              init: function () {
-             this.hydrogen = document.querySelector('#Hydrogen')
-             this.oxygen = document.querySelector('#Oxygen')
+             this.hydrogen = document.querySelector('#hydrogen')
+             this.oxygen = document.querySelector('#oxygen')
             this.water = document.querySelector('#water')
              this.marker1 = document.querySelector('#marker1')
              this.marker2 = document.querySelector('#marker2'
@@ -102,10 +102,10 @@
  <a-entity id="water" gltf-model="#water" scale= "0.5 0.5 0.5"  position="0 0.5 0"></a-entity>
 </a-marker>
 
-<a-asset-item id="oxygen" src="assets/Oxygen.gltf"></a-asset-item>
+<a-asset-item id="oxygen" src="assets/oxygen.gltf"></a-asset-item>
 
 <a-marker id="marker2" type="pattern" url="assets/pattern-card-O.patt"> 
- <a-entity id="Oxygen" gltf-model="#oxygen" scale= "1.5 1.5 1.5"  position="0 0.5 0"></a-entity>
+ <a-entity id="oxygen" gltf-model="#oxygen" scale= "1.5 1.5 1.5"  position="0 0.5 0"></a-entity>
 </a-marker>
 
         <a-entity camera></a-entity>
